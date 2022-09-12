@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../assets/css/global.css" />
+        <link
+            rel="stylesheet"
+            href="../assets/font/fontawesome-5.15.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <title>MISA Cukcuk</title>
+    </head>
+    <body>
+        <div id="toast"></div>
+        <div class="grid-container">
+            <div class="sidebar">
+                <div class="logo">
+                    <div class="logo-toggle">
+                        <img src="../assets//img/toggle.png" alt="" />
+                    </div>
+                    <div class="logo-main">
+                        <img src="../assets//cukcuk-logo.png" alt="" />
+                    </div>
+                </div>
+                <div class="menu mt-3">
+                    <ul>
+                        <li>
+                            <img src="../assets//icon/dashboard.png" alt="" />
+                            <a href="#">Tổng quan</a>
+                        </li>
+                        <li>
+                            <img src="../assets//icon/report.png" alt="" /><a
+                                href="#"
+                                >Báo cáo</a
+                            >
+                        </li>
+                        <li>
+                            <img src="../assets//icon/dashboard.png" alt="" /><a
+                                href="#"
+                                >Mua hàng</a
+                            >
+                        </li>
+                        <li>
+                            <img
+                                src="../assets//icon/dic-employee.png"
+                                alt=""
+                            /><a href="#">Danh mục nhân viên</a>
+                        </li>
+                        <li>
+                            <img src="../assets//icon/setting.png" alt="" /><a
+                                href="#"
+                                >Thiết lập hệ thống</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main">
+                <div class="header">
+                    <div class="header-title">
+                        Nhà hàng biển đông <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="header-user">
+                        <div class="header-user-avatar">
+                            <img
+                                src="../assets/icon/avatar-default.png"
+                                alt=""
+                            />
+                        </div>
+                        <div class="header-user-name">
+                            <p>
+                                Nguyễn Văn Mạnh
+                                <i class="fas fa-ellipsis-h"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content mt-3 ml-2" id="content">
+                    <div class="container-fluid">
+                        <div
+                            class="content-title d-flex justify-content-between align-items-center mb-2"
+                        >
+                            <h5 class="font-weight-bold">
+                                Danh sách nhân viên
+                            </h5>
+                            <button class="ms-btn-icon add-employee">
+                                <img
+                                    src="../assets/icon/add.png"
+                                    class="icon-ms-btn-icon"
+                                />
+                                Thêm nhân viên
+                            </button>
+                        </div>
+                        <div class="content-action">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="ms-form-input-icon w-100">
+                                        <img
+                                            src="../assets/icon/search.png"
+                                            alt=""
+                                        />
+                                        <input
+                                            type="text"
+                                            class="w-100"
+                                            id="searchEmployee"
+                                            placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại "
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="ms-cbx w-100">
+                                        <select
+                                            class="w-100 department"
+                                            id="department"
+                                        >
+                                            <option value="">
+                                                Tất cả phòng ban
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="ms-cbx w-100">
+                                        <select
+                                            class="w-100 position"
+                                            id="position"
+                                        >
+                                            <option value="">
+                                                Tất cả vị trí
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3 ml-auto text-right">
+                                    <ul
+                                        class="d-flex align-items-center justify-content-end"
+                                    >
+                                        <li class="removeEmployee">
+                                            <img
+                                                src="../assets/icon/delete.png"
+                                                alt=""
+                                            />
+                                        </li>
+                                        <li class="p-1 duplicateEmployee">
+                                            <img
+                                                src="../assets/icon/duplicate.png"
+                                                alt=""
+                                            />
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="../assets/icon/refresh.png"
+                                                alt=""
+                                            />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-data mt-2" id="content-data">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="column d-none">
+                                        <div class="col" fieldname="0"></div>
+                                        <div
+                                            class="col"
+                                            fieldname="EmployeeCode"
+                                        >
+                                            Mã nhân viên
+                                        </div>
+                                        <div
+                                            class="col"
+                                            fieldname="EmployeeName"
+                                        >
+                                            Họ và tên
+                                        </div>
+
+                                        <div
+                                            class="col"
+                                            fieldname="Gender"
+                                            EnumName="Gender"
+                                        >
+                                            Giới tính
+                                        </div>
+
+                                        <div
+                                            class="col"
+                                            fieldname="DateOfBirth"
+                                            datatype="Date"
+                                        >
+                                            Ngày sinh
+                                        </div>
+                                        <div
+                                            class="col"
+                                            fieldname="PhoneNumber"
+                                        >
+                                            Điện thoại
+                                        </div>
+                                        <div class="col" fieldname="Email">
+                                            Email
+                                        </div>
+                                        <div
+                                            class="col"
+                                            fieldname="PositionName"
+                                        >
+                                            Chức vụ
+                                        </div>
+                                        <div
+                                            class="col"
+                                            fieldname="DepartmentName"
+                                        >
+                                            Phòng ban
+                                        </div>
+                                        <div
+                                            class="col"
+                                            fieldname="Salary"
+                                            datatype="Number"
+                                        >
+                                            Mức lương cơ bản
+                                        </div>
+                                        <div
+                                            class="col"
+                                            fieldname="WorkStatus"
+                                            EnumName="WorkStatus"
+                                        >
+                                            Tình trạng công việc
+                                        </div>
+                                    </div>
+                                    <div class="content-data-table"></div>
+                                    <div
+                                        class="content-data-paginate d-flex align-items-center justify-content-between mt-2 pb-5"
+                                    >
+                                        <div>
+                                            <span class="result-title"></span>
+                                        </div>
+                                        <div class="paginate d-flex">
+                                            <ul class="d-flex"></ul>
+                                        </div>
+                                        <div>
+                                            <span class="per_page"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div
+                class="modal fade"
+                id="EmployeeDetail"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form enctype="multipart/form-data" id="formEmployee">
+                            <div class="modal-header">
+                                <h5
+                                    class="modal-title text-uppercase font-weight-bold"
+                                    id="exampleModalLabel"
+                                >
+                                    Thông tin nhân viên
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                >
+                                    <span
+                                        aria-hidden="true"
+                                        style="font-size: 20px"
+                                        >&times;</span
+                                    >
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="avatar">
+                                            <img
+                                                src="../assets//img/default-avatar.jpg"
+                                                alt=""
+                                                class="w-100 h-100"
+                                            />
+                                            <p class="text-center">
+                                                (Vui lòng chọn ảnh có định dạng
+                                                .jpg,.jpeg,.png,.gif.)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <h5 class="text-uppercase">
+                                            A. Thông tin chung
+                                        </h5>
+                                        <span class="process-bar mb-2"></span>
+                                        <div class="A">
+                                            <div class="row">
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Mã nhân viên
+                                                            (<span>*</span>)
+                                                        </label>
+                                                        <input
+                                                            tabindex="1"
+                                                            require="true"
+                                                            ValueRequire="true"
+                                                            name="EmployeeCode"
+                                                            Duplicate="true"
+                                                            type="text"
+                                                            class="w-100"
+                                                            id="EmployeeCode"
+                                                            placeholder="Mã nhân viên "
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Họ và tên
+                                                            (<span>*</span>)
+                                                        </label>
+                                                        <input
+                                                            tabindex="2"
+                                                            require="true"
+                                                            name="EmployeeName"
+                                                            type="text"
+                                                            class="w-100"
+                                                            placeholder="Họ và tên "
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Ngày sinh</label
+                                                        >
+                                                        <input
+                                                            tabindex="3"
+                                                            name="DateOfBirth"
+                                                            DataType="Date"
+                                                            type="date"
+                                                            class="w-100"
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div class="ms-cbx w-100">
+                                                        <label for=""
+                                                            >Giới tính</label
+                                                        >
+                                                        <select
+                                                            tabindex="4"
+                                                            name="Gender"
+                                                            DataType="Select"
+                                                            EnumName="Gender"
+                                                        >
+                                                            <option value="1">
+                                                                Nam
+                                                            </option>
+                                                            <option value="0">
+                                                                Nữ
+                                                            </option>
+                                                            <option value="2">
+                                                                Khác
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Số CMTND/Căn cước
+                                                            (<span>*</span>)</label
+                                                        >
+                                                        <input
+                                                            tabindex="5"
+                                                            name="IdentityNumber"
+                                                            require="true"
+                                                            type="number"
+                                                            class="w-100"
+                                                            placeholder="Số CMTND/Căn cước "
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Ngày cấp</label
+                                                        >
+                                                        <input
+                                                            tabindex="6"
+                                                            DataType="Date"
+                                                            name="IdentityIssuedDate"
+                                                            type="date"
+                                                            class="w-100"
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Nơi cấp</label
+                                                        >
+                                                        <input
+                                                            tabindex="7"
+                                                            name="IdentityIssuedPlace"
+                                                            type="text"
+                                                            class="w-100"
+                                                            placeholder="Nơi cấp"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Email
+                                                            (<span>*</span>)</label
+                                                        >
+                                                        <input
+                                                            tabindex="8"
+                                                            name="Email"
+                                                            require="true"
+                                                            type="email"
+                                                            class="w-100"
+                                                            placeholder="Email "
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Số điện thoại
+                                                            (<span>*</span>)</label
+                                                        >
+                                                        <input
+                                                            tabindex="9"
+                                                            name="PhoneNumber"
+                                                            require="true"
+                                                            type="text"
+                                                            class="w-100"
+                                                            placeholder="Số điện thoại"
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-uppercase mt-2">
+                                            B. Thông tin công việc:
+                                        </h5>
+                                        <span class="process-bar mb-2"></span>
+                                        <div class="B">
+                                            <div class="row">
+                                                <div class="col-6 mb-2">
+                                                    <div class="ms-cbx w-100">
+                                                        <label for=""
+                                                            >Vị trí</label
+                                                        >
+                                                        <select
+                                                            tabindex="10"
+                                                            DataType="Select"
+                                                            class="position"
+                                                            name="PositionID"
+                                                        ></select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div class="ms-cbx w-100">
+                                                        <label for=""
+                                                            >Phòng ban</label
+                                                        >
+                                                        <select
+                                                            tabindex="11"
+                                                            DataType="Select"
+                                                            name="DepartmentID"
+                                                            class="department"
+                                                        ></select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Mã số thuế cá
+                                                            nhân</label
+                                                        >
+                                                        <input
+                                                            tabindex="12"
+                                                            name="TaxCode"
+                                                            type="text"
+                                                            class="w-100"
+                                                            placeholder="Mã số thuế cá nhân"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100 salary"
+                                                    >
+                                                        <label for=""
+                                                            >Mức lương cơ
+                                                            bản</label
+                                                        >
+                                                        <input
+                                                            tabindex="13"
+                                                            name="Salary"
+                                                            type="text"
+                                                            id="salary"
+                                                            Datatype="Number"
+                                                            class="w-100 text-right pr-3"
+                                                            placeholder="Mức lương cơ bản "
+                                                        />
+                                                        <span>(VNĐ)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div
+                                                        class="ms-form-input w-100"
+                                                    >
+                                                        <label for=""
+                                                            >Ngày gia nhập công
+                                                            ty</label
+                                                        >
+                                                        <input
+                                                            tabindex="14"
+                                                            DataType="Date"
+                                                            name="JoiningDate"
+                                                            type="date"
+                                                            class="w-100"
+                                                        />
+                                                        <div
+                                                            class="err-message"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <div class="ms-cbx w-100">
+                                                        <label for=""
+                                                            >Tình trạng công
+                                                            việc</label
+                                                        >
+                                                        <select
+                                                            tabindex="15"
+                                                            DataType="Select"
+                                                            name="WorkStatus"
+                                                            EnumName="WorkStatus"
+                                                        >
+                                                            <option value="1">
+                                                                Đang làm việc
+                                                            </option>
+                                                            <option value="0">
+                                                                Đang thử việc
+                                                            </option>
+                                                            <option value="2">
+                                                                Đã nghỉ hưu
+                                                            </option>
+                                                            <option value="3">
+                                                                Đã nghỉ việc
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    tabindex="17"
+                                    type="button"
+                                    class="btn btn-secondary close-btn"
+                                    data-dismiss="modal"
+                                >
+                                    Hủy
+                                </button>
+                                <button
+                                    type="submit"
+                                    class="ms-btn-icon"
+                                    tabindex="16"
+                                >
+                                    <img
+                                        src="../assets/icon/save-32.png"
+                                        class="icon-ms-btn-icon"
+                                        alt=""
+                                    />
+                                    Lưu
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../js/Common/Common.js"></script>
+        <script src="../js/Common/Toast.js"></script>
+        <script src="../js/Common/Enumeration.js"></script>
+        <script src="../js/Common/Resource.js"></script>
+        <!-- <script src="../js/Common/Paginate.js"></script> -->
+        <!-- Các file theo từng màn hình -->
+        <script src="../js/Views/Empoyee/EmployeeDetail.js"></script>
+        <script src="../js/Views/Empoyee/Employee.js"></script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+.ms-form-input-icon input {
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
+    font-size: 13px;
+    padding-right: 16px;
+    padding-left: 40px;
+    color: #000;
+    outline: none;
+}
+.ms-form-input-icon input::placeholder {
+    font-size: 11px;
+    color: #bbbbbb;
+}
+
+.ms-form-input-icon input:focus {
+    border-color: #019160;
+}
+.ms-form-input-icon label {
+    display: block;
+    font-size: 13px;
+    padding: 0;
+    margin-bottom: 4px;
+}
+.ms-form-input-icon {
+    position: relative;
+}
+.ms-form-input-icon img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+}
+.ms-form-input-icon input.err {
+    border-color: #ff4747;
+}
